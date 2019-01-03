@@ -14,10 +14,11 @@
 # minio 환경설정
 -----
 ###설치파일
-'''
+
+```bash
 apt-get update
-apt-get upgrade
-'''
+apt-get upgrade -y
+```
 Docker 허브에 올라온 ubuntu 이미지를 받습니다.
 ![](https://github.com/haneal/DockerRepo/blob/master/img/1_docker_pull_ubuntu_latest.png)
 
