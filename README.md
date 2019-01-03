@@ -13,7 +13,7 @@
 
 # minio 환경설정
 -----
-###설치파일
+### 설치파일
 
 ```bash
 apt-get update
