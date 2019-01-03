@@ -1,6 +1,6 @@
-# docker 실습 목차
+# minio 실습 목차
 
->[docker 이미지 빌드]
+>[minio 환경설정]
 
 >[docker 컨테이너 생성]
 
@@ -11,8 +11,11 @@
 >[docker 네트워크 설정]
 
 
-# docker 빌드 하기 (이미지 생성)
+# minio 환경설정
 -----
+###설치파일
+apt-get update
+apt-get upgrade
 Docker 허브에 올라온 ubuntu 이미지를 받습니다.
 ![](https://github.com/haneal/DockerRepo/blob/master/img/1_docker_pull_ubuntu_latest.png)
 
