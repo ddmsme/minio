@@ -4,7 +4,7 @@
 
 >[minio docker 이미지 다운로드]
 
->[minio docker 실행]
+>[minio docker 컨테이너 만들기 및 실행]
 
 >[minio iptables & 방화벽 설정]
 
@@ -24,9 +24,9 @@ sudo apt install firewalld // 방화벽 설정
 ```
 
 ==================================================================================
-
+# minio docker 이미지 다운로드
 Docker 허브에 등록 되어 있는 minio 이미지를 받습니다.
-![](https://github.com/ddmsme/minio/img/1.이미지다운로드.png)
+![](https://github.com/ddmsme/minio/blob/master/img/1.%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.png)
 
 이미지가 정상적으로 다운로드 되었는지 확인합니다.
 ![](https://github.com/ddmsme/minio/blob/master/img/3.%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%ED%99%95%EC%9D%B8.png)
@@ -37,34 +37,43 @@ Docker 허브에 등록 되어 있는 minio 이미지를 받습니다.
 ------
 
 ```
-docker run -p 9000:9000 --name minio1 \
+sudo docker run -p 9000:9000 --name minio1 \
   -e "MINIO_ACCESS_KEY=AKIAIOSFODNN7EXAMPLE" \
   -e "MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY" \
   -v D:\data:/data \
   -v D:\minio\config:/root/.minio \
   minio/minio server /data
 ```
+![](https://github.com/ddmsme/minio/blob/master/img/minio1.png)
 
 
 
-# docker 컨테이너로 접속하기
+# minio iptables & 방화벽 설정
 -----
-exec로 접속
-![](https://github.com/haneal/DockerRepo/blob/master/img/6.docker_exec.png)
+iptables 추가
+![](https://github.com/ddmsme/minio/blob/master/img/5.iptabes--INPUT.png)
 
-attach로 접속
-![](https://github.com/haneal/DockerRepo/blob/master/img/7.attach.png)
+iptables 추가 리스트확인
+![](https://github.com/ddmsme/minio/blob/master/img/6.iptabes--list.png)
 
-# docker 컨테이너간 네트워크 연결
+iptables 재시작
+![](https://github.com/ddmsme/minio/blob/master/img/7.iptables%20%EC%9E%AC%EC%8B%9C%EC%9E%91.png)
+
+방화벽 허용
+![](https://github.com/ddmsme/minio/blob/master/img/8%EB%B0%A9%ED%99%94%EB%B2%BD%ED%97%88%EC%9A%A9.png)
+![](https://github.com/ddmsme/minio/blob/master/img/9%EB%B0%A9%ED%99%94%EB%B2%BD%ED%97%88%EC%9A%A9.png)
+![](https://github.com/ddmsme/minio/blob/master/img/10%EB%B0%A9%ED%99%94%EB%B2%BD%ED%97%88%EC%9A%A9.png)
+![](https://github.com/ddmsme/minio/blob/master/img/11%EB%B0%A9%ED%99%94%EB%B2%BD%ED%97%88%EC%9A%A9.png)
+
+
+# minio Browser 결과확인
 -----
-네트워크 그룹과 도커 컨테이너에 생성된 서브넷을 확인합니다.
-![](https://github.com/haneal/DockerRepo/blob/master/img/3.2.docker-ls.png)
-![](https://github.com/haneal/DockerRepo/blob/master/img/3_3_network%20create%20netowrk-group.png)
+로그인화면
+![](https://github.com/ddmsme/minio/blob/master/img/12%EC%99%84%EB%A3%8C.PNG)
 
-각각의 컨테이너 websevser 접속해서 ip정보와 동일한 각서버가 동일한 서브넷에 있는지 확인합니다.
-![](https://github.com/haneal/DockerRepo/blob/master/img/8.network_ifconfig_1.png)
-![](https://github.com/haneal/DockerRepo/blob/master/img/11.network_ifconfig.png)
+로그인 후 버킷만들기
+![](https://github.com/ddmsme/minio/blob/master/img/12.%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%9B%84%20%ED%99%94%EB%A9%B4%20%EB%B2%84%ED%82%B7%EB%A7%8C%EB%93%A4%EA%B8%B0.PNG)
+![](https://github.com/ddmsme/minio/blob/master/img/13.%EB%B2%84%ED%82%B7%EB%A7%8C%EB%93%A4%EA%B8%B0.png)
 
-ping을 통해 서로간 통신을 확인합니다.
-![](https://github.com/haneal/DockerRepo/blob/master/img/13.network_ping_2.png)
-![](https://github.com/haneal/DockerRepo/blob/master/img/12.network_ping.png)
+파일 업로드
+![](https://github.com/ddmsme/minio/blob/master/img/14.testbucket_fileupload.png)
