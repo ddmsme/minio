@@ -81,7 +81,7 @@ iptables 재시작
 
 로그인 후 버킷만들기
 ![](https://github.com/ddmsme/minio/blob/master/img/12.%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%9B%84%20%ED%99%94%EB%A9%B4%20%EB%B2%84%ED%82%B7%EB%A7%8C%EB%93%A4%EA%B8%B0.PNG)
-![](https://github.com/ddmsme/minio/blob/master/img/13.%EB%B2%84%ED%82%B7%EB%A7%8C%EB%93%A4%EA%B8%B0.png)
+![](https://github.com/ddmsme/minio/blob/master/img/make2.png)
 
 파일 업로드
 ![](https://github.com/ddmsme/minio/blob/master/img/14.testbucket_fileupload.png)
