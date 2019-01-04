@@ -29,7 +29,7 @@ Docker 허브에 등록 되어 있는 minio 이미지를 받습니다.
 ![](https://github.com/ddmsme/minio/img/1.이미지다운로드.png)
 
 이미지가 정상적으로 다운로드 되었는지 확인합니다.
-![](https://github.com/ddmsme/minio/img/3.이미지다운로드확인.png)
+![](https://github.com/ddmsme/minio/blob/master/img/3.%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%ED%99%95%EC%9D%B8.png)
 
 
 
