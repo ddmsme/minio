@@ -2,13 +2,13 @@
 
 >[minio 환경설정]
 
->[docker 컨테이너 생성]
+>[minio docker 이미지 다운로드]
 
->[docker 실행]
+>[minio docker 실행]
 
->[docker 컨테이너로 접속하기]
+>[minio iptables & 방화벽 설정]
 
->[docker 네트워크 설정]
+>[minio Browser 결과확인]
 
 
 # minio 환경설정
@@ -18,25 +18,34 @@
 ```bash
 apt-get update
 apt-get upgrade -y
+sudo apt-get install docker.io //minio 컨테이너 생성시 사용
+sudo apt-get install iptables-persistent  // iptables 설정 및 재시작
+sudo apt install firewalld // 방화벽 설정
 ```
-Docker 허브에 올라온 ubuntu 이미지를 받습니다.
-![](https://github.com/haneal/DockerRepo/blob/master/img/1_docker_pull_ubuntu_latest.png)
+
+==================================================================================
+
+Docker 허브에 등록 되어 있는 minio 이미지를 받습니다.
+![](https://github.com/ddmsme/minio/img/1.이미지다운로드.png)
 
 이미지가 정상적으로 다운로드 되었는지 확인합니다.
-![](https://github.com/haneal/DockerRepo/blob/master/img/2_docker_pull_ubuntu_latest.png)
+![](https://github.com/ddmsme/minio/img/3.이미지다운로드확인.png)
 
 
 
-# docker 컨테이너 만들기 (컨테이너 생성)
------
-컨테이너를 생성하기전에 네트워크 그룹간 연결을위해 networkgroup을 생성해둡니다.
-![](https://github.com/haneal/DockerRepo/blob/master/img/3_1network%20create%20netowrk-group.png)
+# minio docker 컨테이너 만들기 및 실행
+------
 
-이제 컨테이너를 생성합니다. 
-![](https://github.com/haneal/DockerRepo/blob/master/img/4.docker%20%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%83%9D%EC%84%B1.png)
-![](https://github.com/haneal/DockerRepo/blob/master/img/9.run_server_2%EC%83%9D%EC%84%B1.png)
-  *-d detach백그라운드에서 컨테이너를 실행하고 컨테이너 ID를 출력한다.<br>
-  *-t(Pseudo-tty) 옵션을 사용하면 실행된 Bash 셸에 입력 및 출력을 할 수 있습니다.
+```
+docker run -p 9000:9000 --name minio1 \
+  -e "MINIO_ACCESS_KEY=AKIAIOSFODNN7EXAMPLE" \
+  -e "MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY" \
+  -v D:\data:/data \
+  -v D:\minio\config:/root/.minio \
+  minio/minio server /data
+```
+
+
 
 # docker 컨테이너로 접속하기
 -----
