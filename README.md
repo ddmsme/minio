@@ -13,6 +13,13 @@
 
 # minio 환경설정
 -----
+### 실습환경
+```bash
+-AWS EC2 cloud(Ubuntu Server 18.04)
+-minio ver. latest
+-docker ver. 18.06.1-ce
+
+```
 ### 설치파일
 
 ```bash
