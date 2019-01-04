@@ -23,7 +23,7 @@ sudo apt-get install iptables-persistent  // iptables 설정 및 재시작
 sudo apt install firewalld // 방화벽 설정
 ```
 
-==================================================================================
+
 # minio docker 이미지 다운로드
 Docker 허브에 등록 되어 있는 minio 이미지를 받습니다.
 ![](https://github.com/ddmsme/minio/blob/master/img/1.%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.png)
@@ -44,6 +44,7 @@ sudo docker run -p 9000:9000 --name minio1 \
   -v D:\minio\config:/root/.minio \
   minio/minio server /data
 ```
+결과확인
 ![](https://github.com/ddmsme/minio/blob/master/img/minio1.png)
 
 
